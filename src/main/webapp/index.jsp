@@ -5,25 +5,19 @@
 
 <t:pagetemplate>
     <jsp:attribute name="header">
-         Welcome to the frontpage
+         Search exercises by muscle names:
     </jsp:attribute>
 
     <jsp:attribute name="footer">
-        Welcome to the frontpage
     </jsp:attribute>
 
     <jsp:body>
 
-        <p>Startcode for 2nd semester </p>
-
-        <c:if test="${sessionScope.user != null}">
-            <p>You are logged in with the role of "${sessionScope.user.role}".</p>
-        </c:if>
-
-        <c:if test="${sessionScope.user == null}">
-            <p>You are not logged in yet. You can do it here: <a
-                    href="login.jsp">Login</a></p>
-        </c:if>
+        <form class="d-flex m-5">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <br>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
 
     </jsp:body>
 

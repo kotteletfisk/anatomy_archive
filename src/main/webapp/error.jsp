@@ -36,8 +36,7 @@
             <p>Abandon ship. We have no idea how you ended up here!</p>
         </c:if>
 
-        <p>Jump back to the <a href="index.jsp">Frontpage</a>,
-            or try <a href="login.jsp">logging</a> in again.</p>
+        <p>Jump back to the <a href="index.jsp">Frontpage</a>
 
     </jsp:body>
 </t:pagetemplate>
