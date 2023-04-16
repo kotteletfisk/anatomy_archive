@@ -23,20 +23,16 @@
 
         <form action="choosemusclegroup" class="m-3">
             <table class="table">
-
                 <c:forEach var="muscleGroup" items="${requestScope.muscleGroupList}">
                     <tr>
                         <td>
-                            <label for="${muscleGroup.muscleGroupID}">${muscleGroup.muscleGroupName}
-                                <input type="radio" id="${muscleGroup.muscleGroupID}"
-                                       value="${muscleGroup.muscleGroupID}" name="mschoice">
-                            </label>
+                            <button class="btn btn-success" name="mschoice" value="${muscleGroup.muscleGroupID}">
+                                    ${muscleGroup.muscleGroupName}
+                            </button>
                         </td>
                     </tr>
                 </c:forEach>
-
             </table>
-            <button class="btn btn-lg btn-success" type="submit">Show</button>
         </form>
 
         <c:if test="${requestScope.muscleList != null}">
