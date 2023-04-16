@@ -16,10 +16,9 @@ public class IO
       return MuscleMapper.getExercisesByMuscle(text);
     }
 
-    public static List<Muscle> getMusclesByMuscleGroup(String text) throws DatabaseException
+    public static List<Muscle> getMusclesByMuscleGroupID(int id) throws DatabaseException
     {
-        // return MuscleMapper.getMusclesByMuscleGroup(text);
-        return null;
+        return MuscleMapper.getMusclesByMuscleGroupID(id);
     }
 
     public static List<MuscleGroup> getAllMusclegroups() throws DatabaseException

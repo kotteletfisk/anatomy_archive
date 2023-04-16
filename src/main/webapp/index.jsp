@@ -30,7 +30,7 @@
         <form action="searchmuscle" class="d-flex m-3">
             <input class="form-control me-2" type="search" name="text" placeholder="Search" aria-label="Search">
             <br>
-            <button class="btn btn-primary" type="submit">Search</button>
+            <button class="btn btn-success" type="submit">Search</button>
         </form>
 
     </jsp:body>

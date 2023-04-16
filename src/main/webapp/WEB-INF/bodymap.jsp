@@ -37,8 +37,19 @@
 
             </table>
             <button class="btn btn-lg btn-success" type="submit">Show</button>
-
         </form>
+
+        <c:if test="${requestScope.muscleList != null}">
+            <table class="table">
+                <c:forEach var="muscle" items="${requestScope.muscleList}">
+                    <tr>
+                        <td>
+                                ${muscle.muscleName}
+                        </td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </c:if>
 
     </jsp:body>
 

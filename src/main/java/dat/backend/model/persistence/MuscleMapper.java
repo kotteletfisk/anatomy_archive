@@ -53,11 +53,6 @@ public class MuscleMapper
         }
     }
 
-    /*public static List<Muscle> getMusclesByMuscleGroup(String text)
-    {
-
-    }*/
-
     public static List<MuscleGroup> getAllMuscleGroups() throws DatabaseException
     {
         ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
@@ -85,6 +80,37 @@ public class MuscleMapper
         catch (SQLException e)
         {
             throw new DatabaseException("Unable to get Musclegroups");
+        }
+    }
+
+    public static List<Muscle> getMusclesByMuscleGroupID(int muscleGroupID) throws DatabaseException
+    {
+        ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
+
+        String sql = "SELECT * FROM Muscles WHERE MuscleGroupID = ?;";
+
+        try (Connection connection = connectionPool.getConnection())
+        {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, muscleGroupID);
+
+            ResultSet rs = ps.executeQuery();
+            List<Muscle> muscleList = new ArrayList<>();
+
+            while (rs.next())
+            {
+                int id = rs.getInt("MuscleID");
+                String name = rs.getString("MuscleName");
+                int group_id = rs.getInt("MuscleGroupID");
+
+                muscleList.add(new Muscle(id, name, group_id));
+            }
+
+            return muscleList;
+        }
+        catch (SQLException e)
+        {
+            throw new DatabaseException(e.getMessage());
         }
     }
 }
