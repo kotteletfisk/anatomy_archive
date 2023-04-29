@@ -71,7 +71,7 @@ public class Loadexercises extends HttpServlet
                 }
 
 
-                HashSet<Exercise> exerciseSet = IO.getExerciseAND(idList);
+                Set<Exercise> exerciseSet = IO.getExerciseAND(idList);
             }
         }
     }
