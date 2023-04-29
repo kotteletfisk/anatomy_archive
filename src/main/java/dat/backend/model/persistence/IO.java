@@ -25,4 +25,9 @@ public class IO
     {
         return MuscleMapper.getAllMuscleGroups();
     }
+
+    public static List<Exercise> getExercisesByMuscleGroupID(int id) throws DatabaseException
+    {
+        return ExerciseMapper.getExercisesByMuscleGroupID(id);
+    }
 }

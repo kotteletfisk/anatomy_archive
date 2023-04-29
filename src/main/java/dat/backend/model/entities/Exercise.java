@@ -1,5 +1,7 @@
 package dat.backend.model.entities;
 
+import java.util.Objects;
+
 public class Exercise
 {
     private int exerciseID;
@@ -47,6 +49,21 @@ public class Exercise
     public boolean isExerciseCalisthenic()
     {
         return exerciseCalisthenic;
+    }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exercise exercise = (Exercise) o;
+        return exerciseID == exercise.exerciseID && exerciseIntensity == exercise.exerciseIntensity && exerciseCalisthenic == exercise.exerciseCalisthenic && Objects.equals(exerciseName, exercise.exerciseName) && Objects.equals(exerciseDescription, exercise.exerciseDescription) && Objects.equals(exerciseType, exercise.exerciseType);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return Objects.hash(exerciseID, exerciseName, exerciseDescription, exerciseIntensity, exerciseType, exerciseCalisthenic);
     }
 }
 

@@ -31,6 +31,7 @@ public class Choosemusclegroup extends HttpServlet
             List<MuscleGroup> muscleGroupList = IO.getAllMusclegroups();
 
             request.setAttribute("muscleGroupList", muscleGroupList);
+            request.setAttribute("muscleGroupID", id);
             request.setAttribute("muscleList", muscleList);
             request.getRequestDispatcher("WEB-INF/bodymap.jsp").forward(request, response);
         }
