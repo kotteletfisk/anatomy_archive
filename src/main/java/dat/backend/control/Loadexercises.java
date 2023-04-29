@@ -38,10 +38,12 @@ public class Loadexercises extends HttpServlet
                 int id = Integer.parseInt(request.getParameter("muscleGroupID"));
                 List<MuscleGroup> muscleGroupList = null;
                 List<Exercise> exerciseList = null;
+                List<Muscle> muscleList = null;
                 try
                 {
                     muscleGroupList = IO.getAllMusclegroups();
                     exerciseList = IO.getExercisesByMuscleGroupID(id);
+                    muscleList = IO.getMusclesByMuscleGroupID(id);
 
                 }
                 catch (DatabaseException e)
@@ -51,10 +53,11 @@ public class Loadexercises extends HttpServlet
                 }
 
                 Set<Exercise> exerciseSet = new HashSet<>(exerciseList);
-                System.out.println(exerciseSet);
 
                 request.setAttribute("exerciseList", exerciseSet);
                 request.setAttribute("muscleGroupList", muscleGroupList);
+                request.setAttribute("muscleGroupID", id);
+                request.setAttribute("muscleList",muscleList);
                 request.getRequestDispatcher("WEB-INF/bodymap.jsp").forward(request, response);
             }
         }
