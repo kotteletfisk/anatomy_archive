@@ -31,14 +31,15 @@ public class Loadexercises extends HttpServlet
             response.sendRedirect("bodymap");
         }
 
+        List<Exercise> exerciseList = null;
+        List<Muscle> muscleList = null;
+        List<MuscleGroup> muscleGroupList = null;
+
         for (String s: strList)
         {
             if (s.equals("all"))
             {
                 int id = Integer.parseInt(request.getParameter("muscleGroupID"));
-                List<MuscleGroup> muscleGroupList = null;
-                List<Exercise> exerciseList = null;
-                List<Muscle> muscleList = null;
                 try
                 {
                     muscleGroupList = IO.getAllMusclegroups();
@@ -59,6 +60,18 @@ public class Loadexercises extends HttpServlet
                 request.setAttribute("muscleGroupID", id);
                 request.setAttribute("muscleList",muscleList);
                 request.getRequestDispatcher("WEB-INF/bodymap.jsp").forward(request, response);
+            }
+
+            else
+            {
+                int[] idList = new int[strList.length];
+                for (int i = 0; i < strList.length; i++)
+                {
+                    idList[i] = Integer.parseInt(strList[i]);
+                }
+
+
+                HashSet<Exercise> exerciseSet = IO.getExerciseAND(idList);
             }
         }
     }

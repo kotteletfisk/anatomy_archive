@@ -16,6 +16,7 @@ import java.util.List;
 
 public class MuscleMapper
 {
+    // TODO: Move to exerciseMapper
     protected static List<Exercise> getExercisesByMuscle(String text) throws DatabaseException
     {
         ConnectionPool connectionPool = ApplicationStart.getConnectionPool();
@@ -80,6 +81,7 @@ public class MuscleMapper
             throw new DatabaseException("Unable to get Musclegroups");
         }
     }
+
 
     protected static List<Muscle> getMusclesByMuscleGroupID(int muscleGroupID) throws DatabaseException
     {

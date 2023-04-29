@@ -7,6 +7,7 @@ import dat.backend.model.exceptions.DatabaseException;
 
 import javax.xml.crypto.Data;
 import java.util.List;
+import java.util.Set;
 
 public class IO
 {
@@ -29,5 +30,10 @@ public class IO
     public static List<Exercise> getExercisesByMuscleGroupID(int id) throws DatabaseException
     {
         return ExerciseMapper.getExercisesByMuscleGroupID(id);
+    }
+
+    public static Set<Exercise> getExerciseAND(int[] idList)
+    {
+        return ExerciseMapper.getExerciseAND(idList);
     }
 }
